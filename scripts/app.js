@@ -9,15 +9,17 @@
 
 // Assign game values
 let game;
-let numberOfWords = 2;
-let numberOfGuesses = 4;
+let numberOfWords = 2;    // 1-9 words for each puzzle
+let numberOfGuesses = 4;  // Number of guesses allowed for each game.
 
 // Configure html elements
 const puzzleEl = document.querySelector('#puzzle');
 const guessedCharactersEl = document.querySelector('#guessed-characters');
 const guessesRemainingEl = document.querySelector('#guesses-remaining');
 const gameStatusEl = document.querySelector('#game-status');
+const resetEl = document.querySelector('#reset');
 
+// Get the puzzle, instantiate the game and render a page.
 const startGame = async (numberOfWordsInPuzzle, numberOfGuessesAllowed) => {
   puzzle = await getPuzzle(numberOfWordsInPuzzle);
   game = new Hangman(puzzle, numberOfWordsInPuzzle, numberOfGuessesAllowed);
@@ -37,7 +39,6 @@ window.addEventListener('keypress', (e) => {
 });
 
 // Listen for the reset button
-const resetEl = document.querySelector('#reset');
 resetEl.addEventListener('click', () => {
   startGame(numberOfWords, numberOfGuesses);
 });
