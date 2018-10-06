@@ -10,7 +10,7 @@
 // Assign game values
 let game;
 let numberOfWords = 1;
-let numberOfGuesses = 4;
+let numberOfGuesses = 10;
 
 // Configure html elements
 const puzzleEl = document.querySelector('#puzzle');
