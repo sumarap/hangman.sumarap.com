@@ -33,7 +33,8 @@ class Hangman {
     } else if (this.status === 'won') {
       return 'You WON!!';
     } else {
-      return `You lost. The puzzle was: "${this.puzzle}"`;
+      //return `You lost. The puzzle was: "${this.puzzle}"`;
+      return `You lost.`;
     }
   }
 
@@ -66,7 +67,7 @@ class Hangman {
   // showing an asterisk
   ////////////////////////////////////////////////////////////////////////
 
-  getPuzzleWithAsterisks(){
+  getPuzzleWithAsterisks(asterisk){
     
     const puzzle = this.puzzle.toLowerCase().split('');
     let puzzleWithAsterisks = '';
@@ -75,7 +76,7 @@ class Hangman {
       if (this.guesses.includes(element) || element === ' '){
         puzzleWithAsterisks += element;        
       } else {
-        puzzleWithAsterisks += '*';
+        puzzleWithAsterisks += asterisk !== '' ? asterisk : element;
       }
     });
     return puzzleWithAsterisks;

@@ -8,15 +8,16 @@
   <title>Hangman</title>
 </head>
 <body>
-  <p>Hangman Game</p>
-  <div>
-    <p id="puzzle"></p>
-    <p id="guessed-characters"></p>
-    <p id="guesses-remaining"></p>
-    <p id="game-status"></p>
-    <button id="reset">Reset</button>
+  <div id="main">
+    <h3 id="title">Hangman Game</h3>
+    <div id="puzzle"></div>
+    <p id="guessed-characters" class="support"></p>
+    <p id="guesses-remaining" class="support"></p>
+    <p id="game-status" class="support"></p>
+    <button id="reset">RESTART</button>
   </div>
 
+  <script src="scripts/functions.js"></script>
   <script src="scripts/requests.js"></script>
   <script src="scripts/hangman.js"></script>
   <script src="scripts/app.js"></script>

@@ -9,7 +9,7 @@
 
 // Assign game values
 let game;
-let numberOfWords = 2;
+let numberOfWords = 1;
 let numberOfGuesses = 4;
 
 // Configure html elements
@@ -41,28 +41,6 @@ const resetEl = document.querySelector('#reset');
 resetEl.addEventListener('click', () => {
   startGame(numberOfWords, numberOfGuesses);
 });
-
-const renderPuzzlePage = () =>  {
- 
-  // First, reset all screen elements to blank
-  puzzleEl.textContent = '';
-  guessedCharactersEl.textContent = '';
-  guessesRemainingEl.textContent = '';
-  gameStatusEl.textContent = '';
-
-  // Display the puzzle with asterisks for letters not guessed yet.
-  puzzleEl.textContent = `Puzzle: "${game.getPuzzleWithAsterisks()}"`;
-
-  // Display characters already guessed by the user
-  guessedCharactersEl.textContent = `Guesses: ${game.guesses}`;
-
-  // Display guesses remaining
-  guessesRemainingEl.textContent = `Guesses remaining: ${game.numberOfGuessesRemaining}`;
-
-  // Display game status (won, lost, playing)
-  gameStatusEl.textContent = `Status: "${game.statusMessage()}"`;
-
-};
 
 //////////////////////////////////////////////////////////////////////////
 // End of app.js
