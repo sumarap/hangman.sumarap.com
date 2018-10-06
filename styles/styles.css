@@ -52,3 +52,7 @@ div {
   margin: 0;
   border: 0;
 }
+
+#reset:hover {
+  background-color: #1c0875;
+}
