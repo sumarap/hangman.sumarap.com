@@ -11,16 +11,25 @@
 <body>
 
   <div id="main" class="container-fluid">
-  
     <div class="card" style="width: 100%;">
-      <!-- <img class="card-img-top" src=".../100px180/" alt="Card image cap"> -->
       <div class="card-body">
         <h5 id="title" class="card-title">Hangman</h5>
         <div id="puzzle" class="card-text"></div>
-        <p id="guessed-characters" class="card-text support"></p>
-        <p id="guesses-remaining" class="card-text support"></p>
-        <p id="game-status" class="card-text support"></p>
-        <a id="reset" href="#" class="btn btn-primary">Reset</a>
+      </div>
+    </div>
+
+    <div class="card" style="width: 100%;">
+      <!-- <img class="card-img-top" src=".../100px180/" alt="Card image cap"> -->
+
+      <div class="card-body">
+        <ul class="list-group list-group-flush">
+          <li id="guessed-characters" class="list-group-item support"></li>
+          <li id="guesses-remaining" class="list-group-item support"></li>
+          <li id="game-status" class="list-group-item support"></li>
+          <li class="list-group-item">
+            <a id="reset" href="#" class="btn btn-primary">Reset</a>
+          </li>
+        </ul>
       </div>
     </div>
   

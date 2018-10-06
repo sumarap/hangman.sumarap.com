@@ -43,5 +43,14 @@ div {
 .support {
   margin: 5;
   color: #325ce6;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
+  /* font-size: 1.2rem; */
+}
+
+.card {
+  margin-bottom: 10px;
+}
+
+#reset {
+  font-size: 1.5rem;
 }
