@@ -30,9 +30,9 @@ div {
 .puzzleSpan {
   display: inline-block;
   font-size: 2rem;
-  height: 2.3rem;
-  width: 2.3rem;
-  line-height: 2.3rem;
+  height: 2.5rem;
+  width: 2rem;
+  line-height: 2rem;
   text-align: center;
   color: #ad3131;
   border-bottom: 1px solid #534f59;
@@ -41,19 +41,7 @@ div {
 }
 
 .support {
-  color: #b6e632
-}
-
-#reset {
-  background-color: #270ca1;
-  color: white;
-  height: 2rem;
-  width: 5rem;
-  margin: 0;
-  border: 0;
-}
-
-#reset:hover {
-  /* background-color: #1c0875; */
-  background-color: #413579;
+  margin: 5;
+  color: #325ce6;
+  font-size: 1.2rem;
 }

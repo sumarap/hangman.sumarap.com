@@ -29,7 +29,7 @@ class Hangman {
 
   statusMessage() {
     if (this.status === 'playing') {
-      return 'Playing...';
+      return 'Playing';
     } else if (this.status === 'won') {
       return 'You WON!!';
     } else {

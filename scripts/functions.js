@@ -15,13 +15,13 @@ const renderPuzzlePage = () =>  {
   makePuzzleSpans(game, puzzleEl, '*');  
 
   // Display characters already guessed by the user
-  guessedCharactersEl.textContent = `Guesses: ${game.guesses}`;
+  guessedCharactersEl.textContent = `: ${game.guesses}`;
 
   // Display guesses remaining
-  guessesRemainingEl.textContent = `Guesses remaining: ${game.numberOfGuessesRemaining}`;
+  guessesRemainingEl.textContent = `Guesses left: ${game.numberOfGuessesRemaining}`;
 
   // Display game status (won, lost, playing)
-  gameStatusEl.textContent = `Status: "${game.statusMessage()}"`;
+  gameStatusEl.textContent = `Status: ${game.statusMessage()}`;
   if (game.status === 'lost') {
     makePuzzleSpans(game, puzzleEl, '');  
   }
