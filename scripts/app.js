@@ -22,6 +22,9 @@ const startGame = async (numberOfWordsInPuzzle, numberOfGuessesAllowed) => {
   puzzle = await getPuzzle(numberOfWordsInPuzzle);
   game = new Hangman(puzzle, numberOfWordsInPuzzle, numberOfGuessesAllowed);
 
+  // Blank the guessed characters input before each game.
+  guessedCharactersEl.value = '';
+
   renderPuzzlePage();
   console.log('Game Started');
   console.log(`Puzzle: "${puzzle}"`);
