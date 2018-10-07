@@ -24,7 +24,12 @@ const renderPuzzlePage = () =>  {
   // Display game status (won, lost, playing)
   gameStatusEl.textContent = `Status: ${game.statusMessage()}`;
   if (game.status === 'lost') {
+    // Game over reveal the puzzle
     makePuzzleSpans(game, puzzleEl, '');  
+    displayGameOverMessage(game.status);
+  }
+  if (game.status === 'won') {
+    displayGameOverMessage(game.status);
   }
 };
 
@@ -56,5 +61,17 @@ const makePuzzleSpans = (game, puzzleEl, asterisk='*') => {
     spanEl.setAttribute('class', 'puzzleSpan');
     spanEl.textContent = element;
     puzzleEl.appendChild(spanEl);
-  })
+  });
 };
+
+const displayGameOverMessage = (status) => {
+  alertEl = document.querySelector('#game-over-message');
+  if (status === 'won') {
+    alertEl.setAttribute('class', 'alert alert-success');
+  } else {
+    alertEl.setAttribute('class', 'alert alert-danger');
+  }
+  alertEl.setAttribute('role', 'alert');
+  alertEl.textContent = `Game Over! YOU ${status.toUpperCase()}!`;
+  document.querySelector('#main').appendChild(alertEl);
+}

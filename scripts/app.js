@@ -17,6 +17,7 @@ const puzzleEl = document.querySelector('#puzzle');
 const guessedCharactersEl = document.querySelector('#guessed-characters');
 const guessesRemainingEl = document.querySelector('#guesses-remaining');
 const gameStatusEl = document.querySelector('#game-status');
+const gameOverEl = document.querySelector('#game-over-message');
 
 const startGame = async (numberOfWordsInPuzzle, numberOfGuessesAllowed) => {
   puzzle = await getPuzzle(numberOfWordsInPuzzle);
@@ -24,6 +25,11 @@ const startGame = async (numberOfWordsInPuzzle, numberOfGuessesAllowed) => {
 
   // Blank the guessed characters input before each game.
   guessedCharactersEl.value = '';
+
+  // Blank the game-over-message element (used for resets)
+  gameOverEl.setAttribute('class','');
+  gameOverEl.setAttribute('role','');
+  gameOverEl.innerHTML = '';
 
   renderPuzzlePage();
   console.log('Game Started');
