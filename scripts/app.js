@@ -21,6 +21,7 @@ const gameStatusEl = document.querySelector('#game-status');
 const startGame = async (numberOfWordsInPuzzle, numberOfGuessesAllowed) => {
   puzzle = await getPuzzle(numberOfWordsInPuzzle);
   game = new Hangman(puzzle, numberOfWordsInPuzzle, numberOfGuessesAllowed);
+
   renderPuzzlePage();
   console.log('Game Started');
   console.log(`Puzzle: "${puzzle}"`);
