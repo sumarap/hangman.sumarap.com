@@ -15,7 +15,8 @@ const renderPuzzlePage = () =>  {
   makePuzzleSpans(game, puzzleEl, '*');  
 
   // Display characters already guessed by the user
-  guessedCharactersEl.textContent = `: ${game.guesses}`;
+  guessedCharactersEl.focus();
+  guessedCharactersEl.textContent = game.guesses;
 
   // Display guesses remaining
   guessesRemainingEl.textContent = `Guesses left: ${game.numberOfGuessesRemaining}`;
