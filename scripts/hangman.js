@@ -33,7 +33,7 @@ class Hangman {
     } else if (this.status === 'won') {
       return 'You WON!!';
     } else {
-      return `You lost.`;
+      return `Sorry, you lost.`;
     }
   }
 

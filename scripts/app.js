@@ -17,7 +17,7 @@ const puzzleEl = document.querySelector('#puzzle');
 const guessedCharactersEl = document.querySelector('#guessed-characters');
 const guessesRemainingEl = document.querySelector('#guesses-remaining');
 const gameStatusEl = document.querySelector('#game-status');
-const gameOverEl = document.querySelector('#game-over-message');
+const resetEl = document.querySelector('#reset');
 
 // Get the puzzle, instantiate the game and render a page.
 const startGame = async (numberOfWordsInPuzzle, numberOfGuessesAllowed) => {
@@ -27,10 +27,9 @@ const startGame = async (numberOfWordsInPuzzle, numberOfGuessesAllowed) => {
   // Blank the guessed characters input before each game.
   guessedCharactersEl.value = '';
 
-  // Blank the game-over-message element (used for resets)
-  gameOverEl.setAttribute('class','');
-  gameOverEl.setAttribute('role','');
-  gameOverEl.innerHTML = '';
+  // Reset the game status alert for new game
+  gameStatusEl.textContent = `Status: ${game.statusMessage()}`;
+  gameStatusEl.setAttribute('class', 'alert alert-success');
 
   renderPuzzlePage();
   console.log('Game Started');
@@ -67,5 +66,3 @@ keyboard.addEventListener('click', (e) => {
 //////////////////////////////////////////////////////////////////////////
 // End of app.js
 //////////////////////////////////////////////////////////////////////////
-
-

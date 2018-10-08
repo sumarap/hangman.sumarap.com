@@ -22,15 +22,19 @@ const renderPuzzlePage = () =>  {
   // guessesRemainingEl.textContent = `Guesses left: ${game.numberOfGuessesRemaining}`;
   guessesRemainingEl.textContent = `Guesses left: ${game.numberOfGuessesRemaining}`;
 
-  // Display game status (won, lost, playing)
-  gameStatusEl.textContent = `Status: ${game.statusMessage()}`;
-  if (game.status === 'lost') {
+  if (game.status === 'playing' ) {
+    // Display game status (playing)
+    gameStatusEl.textContent = `Status: ${game.statusMessage()}`;
+
+  } else if (game.status === 'lost') {
     // Game over reveal the puzzle
     makePuzzleSpans(game, puzzleEl, '');  
-    displayGameOverMessage(game.status);
-  }
-  if (game.status === 'won') {
-    displayGameOverMessage(game.status);
+    gameStatusEl.setAttribute('class', 'alert alert-danger');
+    gameStatusEl.textContent = `GAME OVER: ${game.statusMessage()}`;
+
+  } else if (game.status === 'won') {
+    gameStatusEl.setAttribute('class', 'alert alert-success');
+    gameStatusEl.textContent = `GAME OVER: ${game.statusMessage()}`;
   }
 };
 
@@ -64,15 +68,3 @@ const makePuzzleSpans = (game, puzzleEl, asterisk='*') => {
     puzzleEl.appendChild(spanEl);
   });
 };
-
-const displayGameOverMessage = (status) => {
-  alertEl = document.querySelector('#game-over-message');
-  if (status === 'won') {
-    alertEl.setAttribute('class', 'alert alert-success');
-  } else {
-    alertEl.setAttribute('class', 'alert alert-danger');
-  }
-  alertEl.setAttribute('role', 'alert');
-  alertEl.textContent = `Game Over! YOU ${status.toUpperCase()}!`;
-  document.querySelector('#main').appendChild(alertEl);
-}
