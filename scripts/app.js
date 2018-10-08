@@ -9,20 +9,29 @@
 
 // Assign game values
 let game;
-let numberOfWords = 2;    // 1-9 words for each puzzle
-let numberOfGuesses = 4;  // Number of guesses allowed for each game.
+let numberOfWords = 1;
+let numberOfGuesses = 10;
 
 // Configure html elements
 const puzzleEl = document.querySelector('#puzzle');
 const guessedCharactersEl = document.querySelector('#guessed-characters');
 const guessesRemainingEl = document.querySelector('#guesses-remaining');
 const gameStatusEl = document.querySelector('#game-status');
-const resetEl = document.querySelector('#reset');
+const gameOverEl = document.querySelector('#game-over-message');
 
 // Get the puzzle, instantiate the game and render a page.
 const startGame = async (numberOfWordsInPuzzle, numberOfGuessesAllowed) => {
   puzzle = await getPuzzle(numberOfWordsInPuzzle);
   game = new Hangman(puzzle, numberOfWordsInPuzzle, numberOfGuessesAllowed);
+
+  // Blank the guessed characters input before each game.
+  guessedCharactersEl.value = '';
+
+  // Blank the game-over-message element (used for resets)
+  gameOverEl.setAttribute('class','');
+  gameOverEl.setAttribute('role','');
+  gameOverEl.innerHTML = '';
+
   renderPuzzlePage();
   console.log('Game Started');
   console.log(`Puzzle: "${puzzle}"`);
@@ -43,27 +52,17 @@ resetEl.addEventListener('click', () => {
   startGame(numberOfWords, numberOfGuesses);
 });
 
-const renderPuzzlePage = () =>  {
- 
-  // First, reset all screen elements to blank
-  puzzleEl.textContent = '';
-  guessedCharactersEl.textContent = '';
-  guessesRemainingEl.textContent = '';
-  gameStatusEl.textContent = '';
-
-  // Display the puzzle with asterisks for letters not guessed yet.
-  puzzleEl.textContent = `Puzzle: "${game.getPuzzleWithAsterisks()}"`;
-
-  // Display characters already guessed by the user
-  guessedCharactersEl.textContent = `Guesses: ${game.guesses}`;
-
-  // Display guesses remaining
-  guessesRemainingEl.textContent = `Guesses remaining: ${game.numberOfGuessesRemaining}`;
-
-  // Display game status (won, lost, playing)
-  gameStatusEl.textContent = `Status: "${game.statusMessage()}"`;
-
-};
+// Listen for virtual keyboard press (ours)
+const keyboard = document.querySelector('#keyboard');
+keyboard.addEventListener('click', (e) => {
+  if (game.status === 'playing'){
+    const guess = e.target.innerText;
+    if (game.makeGuess(guess)) {
+      guessedCharactersEl.value += guess;
+    };
+    renderPuzzlePage();
+  }
+});
 
 //////////////////////////////////////////////////////////////////////////
 // End of app.js
