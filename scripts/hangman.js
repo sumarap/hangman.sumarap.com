@@ -33,7 +33,6 @@ class Hangman {
     } else if (this.status === 'won') {
       return 'You WON!!';
     } else {
-      //return `You lost. The puzzle was: "${this.puzzle}"`;
       return `You lost.`;
     }
   }
@@ -60,6 +59,7 @@ class Hangman {
     }
 
     this.setGameStatus();
+    return isNewGuess;
   }
 
   ////////////////////////////////////////////////////////////////////////

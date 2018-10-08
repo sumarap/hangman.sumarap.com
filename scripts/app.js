@@ -52,6 +52,18 @@ resetEl.addEventListener('click', () => {
   startGame(numberOfWords, numberOfGuesses);
 });
 
+// Listen for virtual keyboard press (ours)
+const keyboard = document.querySelector('#keyboard');
+keyboard.addEventListener('click', (e) => {
+  if (game.status === 'playing'){
+    const guess = e.target.innerText;
+    if (game.makeGuess(guess)) {
+      guessedCharactersEl.value += guess;
+    };
+    renderPuzzlePage();
+  }
+});
+
 //////////////////////////////////////////////////////////////////////////
 // End of app.js
 //////////////////////////////////////////////////////////////////////////

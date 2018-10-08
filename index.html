@@ -4,6 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="icon" href="images/index.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Hangman">
+  <link rel="apple-touch-startup-image" href="/launch.png">
+  <link rel="apple-touch-icon" href="index.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="index.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="index.png">
+  <link rel="apple-touch-icon" sizes="167x167" href="index.png">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
   <link rel="stylesheet" href="styles/styles.css">
   <title>Hangman</title>
@@ -11,7 +20,7 @@
 <body>
 
   <div id="main" class="container-fluid">
-    <div class="card" style="width: 100%;">
+    <div id='game-card' class="card" style="width: 100%;">
       <div class="card-body">
         <h3 id="title" class="card-title">Hangman</h3>
         <div id="puzzle" class="card-text"></div>
@@ -23,14 +32,47 @@
 
       <div class="card-body">
         <ul class="list-group list-group-flush">
-          <input id="guessed-characters" type="text">
-          <!-- <li id="guessed-characters" class="list-group-item support"></li> -->
-          <li id="guesses-remaining" class="list-group-item support"></li>
-          <li id="game-status" class="list-group-item support"></li>
-          <li class="list-group-item">
-            <a id="reset" href="#" class="btn btn-primary">Reset</a>
-          </li>
+          <input id="guessed-characters" type="text" disabled >
+          <!-- <li id="guesses-remaining" class="list-group-item support"></li> -->
+          <div id="guesses-remaining" class="alert alert-success" role="alert"></div>
+          <!-- <li id="game-status" class="list-group-item support"></li> -->
+          <div id="game-status" class="alert alert-success" role="alert"></div>
         </ul>
+        <div id='keyboard'>
+          <div id="kb-row-1" class="keyboard">
+            <button type="button" class="btn btn-primary big-key">Q</button>
+            <button type="button" class="btn btn-primary big-key">W</button>
+            <button type="button" class="btn btn-primary big-key">E</button>
+            <button type="button" class="btn btn-primary big-key">R</button>
+            <button type="button" class="btn btn-primary big-key">T</button>
+            <button type="button" class="btn btn-primary big-key">Y</button>
+            <button type="button" class="btn btn-primary big-key">U</button>
+            <button type="button" class="btn btn-primary big-key">I</button>
+            <button type="button" class="btn btn-primary big-key">O</button>
+            <button type="button" class="btn btn-primary big-key">P</button>
+          </div>
+          <div id="kb-row-2" class="keyboard">
+            <button type="button" class="btn btn-primary big-key">A</button>
+            <button type="button" class="btn btn-primary big-key">S</button>
+            <button type="button" class="btn btn-primary big-key">D</button>
+            <button type="button" class="btn btn-primary big-key">F</button>
+            <button type="button" class="btn btn-primary big-key">G</button>
+            <button type="button" class="btn btn-primary big-key">H</button>
+            <button type="button" class="btn btn-primary big-key">J</button>
+            <button type="button" class="btn btn-primary big-key">K</button>
+            <button type="button" class="btn btn-primary big-key">L</button>
+          </div>
+          <div id="kb-row-3" class="keyboard">
+            <button type="button" class="btn btn-primary big-key">Z</button>
+            <button type="button" class="btn btn-primary big-key">X</button>
+            <button type="button" class="btn btn-primary big-key">C</button>
+            <button type="button" class="btn btn-primary big-key">V</button>
+            <button type="button" class="btn btn-primary big-key">B</button>
+            <button type="button" class="btn btn-primary big-key">N</button>
+            <button type="button" class="btn btn-primary big-key">M</button>
+          </div>
+          </div>
+          <button id="reset" href="#" class="btn btn-primary btn-lg btn-block">Reset</button>
         <div id="game-over-message"></div>
       </div> <!-- card body -->
     </div> <!-- class card -->

@@ -19,6 +19,7 @@ const renderPuzzlePage = () =>  {
   guessedCharactersEl.textContent = game.guesses;
 
   // Display guesses remaining
+  // guessesRemainingEl.textContent = `Guesses left: ${game.numberOfGuessesRemaining}`;
   guessesRemainingEl.textContent = `Guesses left: ${game.numberOfGuessesRemaining}`;
 
   // Display game status (won, lost, playing)
