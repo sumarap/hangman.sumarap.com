@@ -63,7 +63,7 @@ const makePuzzleSpans = (game, puzzleEl, asterisk='*') => {
   let spanEl;
   puzzleArray.forEach((element) => {
     spanEl = document.createElement('span');
-    spanEl.setAttribute('class', 'puzzleSpan');
+    spanEl.classList.add('puzzleSpan');
     spanEl.textContent = element;
     puzzleEl.appendChild(spanEl);
   });

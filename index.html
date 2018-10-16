@@ -13,73 +13,65 @@
   <link rel="apple-touch-icon" sizes="152x152" href="index.png">
   <link rel="apple-touch-icon" sizes="180x180" href="index.png">
   <link rel="apple-touch-icon" sizes="167x167" href="index.png">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-  <link rel="stylesheet" href="styles/styles.css">
+  <link rel="stylesheet" media="screen, handheld" href="styles/styles.css">
   <title>Hangman</title>
 </head>
 <body>
+  <div class="site">
 
-  <div id="main" class="container-fluid">
-    <div id='game-card' class="card" style="width: 100%;">
-      <div class="card-body">
-        <h3 id="title" class="card-title">Hangman</h3>
-        <div id="puzzle" class="card-text"></div>
+    <h2 class="title">Hangman</h2>
+
+    <div class="puzzle">
+      <div id="puzzle"></div>
+    </div>
+    <div class="list">
+      <!-- <input id="guessed-characters" type="text" disabled > -->
+      <input id="guessed-characters" type="text" disabled >
+      <div id="guesses-remaining"></div>
+      <div id="game-status"></div>
+    </div>
+    <div id="keyboard" class="keyboard">
+      <div id="kb-row-1" class="keyboard-row">
+        <button type="button" class="key">Q</button>
+        <button type="button" class="key">W</button>
+        <button type="button" class="key">E</button>
+        <button type="button" class="key">R</button>
+        <button type="button" class="key">T</button>
+        <button type="button" class="key">Y</button>
+        <button type="button" class="key">U</button>
+        <button type="button" class="key">I</button>
+        <button type="button" class="key">O</button>
+        <button type="button" class="key">P</button>
       </div>
+      <div id="kb-row-2" class="keyboard-row">
+        <button type="button" class="key">A</button>
+        <button type="button" class="key">S</button>
+        <button type="button" class="key">D</button>
+        <button type="button" class="key">F</button>
+        <button type="button" class="key">G</button>
+        <button type="button" class="key">H</button>
+        <button type="button" class="key">J</button>
+        <button type="button" class="key">K</button>
+        <button type="button" class="key">L</button>
+       </div>
+       <div id="kb-row-3" class="keyboard-row">
+        <button type="button" class="key">Z</button>
+        <button type="button" class="key">X</button>
+        <button type="button" class="key">C</button>
+        <button type="button" class="key">V</button>
+        <button type="button" class="key">B</button>
+        <button type="button" class="key">N</button>
+        <button type="button" class="key">M</button>
+       </div>
+    </div>
+    <div class='reset'>
+      <button id="reset" href="#" class="button">Reset</button>
     </div>
 
-    <div class="card" style="width: 100%;">
-      <!-- <img class="card-img-top" src=".../100px180/" alt="Card image cap"> -->
-
-      <div class="card-body">
-        <ul class="list-group list-group-flush">
-          <input id="guessed-characters" type="text" disabled >
-          <div id="guesses-remaining" class="alert alert-success" role="alert"></div>
-        </ul>
-        <div id='keyboard'>
-          <div id="kb-row-1" class="keyboard">
-            <button type="button" class="btn btn-primary big-key">Q</button>
-            <button type="button" class="btn btn-primary big-key">W</button>
-            <button type="button" class="btn btn-primary big-key">E</button>
-            <button type="button" class="btn btn-primary big-key">R</button>
-            <button type="button" class="btn btn-primary big-key">T</button>
-            <button type="button" class="btn btn-primary big-key">Y</button>
-            <button type="button" class="btn btn-primary big-key">U</button>
-            <button type="button" class="btn btn-primary big-key">I</button>
-            <button type="button" class="btn btn-primary big-key">O</button>
-            <button type="button" class="btn btn-primary big-key">P</button>
-          </div>
-          <div id="kb-row-2" class="keyboard">
-            <button type="button" class="btn btn-primary big-key">A</button>
-            <button type="button" class="btn btn-primary big-key">S</button>
-            <button type="button" class="btn btn-primary big-key">D</button>
-            <button type="button" class="btn btn-primary big-key">F</button>
-            <button type="button" class="btn btn-primary big-key">G</button>
-            <button type="button" class="btn btn-primary big-key">H</button>
-            <button type="button" class="btn btn-primary big-key">J</button>
-            <button type="button" class="btn btn-primary big-key">K</button>
-            <button type="button" class="btn btn-primary big-key">L</button>
-          </div>
-          <div id="kb-row-3" class="keyboard">
-            <button type="button" class="btn btn-primary big-key">Z</button>
-            <button type="button" class="btn btn-primary big-key">X</button>
-            <button type="button" class="btn btn-primary big-key">C</button>
-            <button type="button" class="btn btn-primary big-key">V</button>
-            <button type="button" class="btn btn-primary big-key">B</button>
-            <button type="button" class="btn btn-primary big-key">N</button>
-            <button type="button" class="btn btn-primary big-key">M</button>
-          </div>
-          </div>
-          <button id="reset" href="#" class="btn btn-primary btn-lg btn-block">Reset</button>
-          <div id="game-status" class="alert alert-success" role="alert"></div>
-      </div> <!-- card body -->
-    </div> <!-- class card -->
-  </div> <!-- main -->
-
-
   <!-- Bootstrap, requires jquery JS, then popper JS, then bootstrap JS-->
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script> 
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>  -->
   <script src="scripts/functions.js"></script>
   <script src="scripts/requests.js"></script>
   <script src="scripts/hangman.js"></script>

@@ -3,117 +3,60 @@
   margin: 0;
   padding: 0;
   color: black;
-}
-
-html {
-  font-size: 60%;
-}
-
-body {
-  background: #20192b;
-  color: #fafafa;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 2rem;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
+  -webkit-appearance: none;
 }
 
-#title {
-  color: #bb9e40;
+.title {
+  text-align: center;
+  margin-top: 5px;
+  margin-bottom: 40px;
 }
 
+/* The div that contains the puzzle */
+.puzzle {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Each span element in the puzzle */
 .puzzleSpan {
   display: inline-block;
-  font-size: 2rem;
-  height: 2.5rem;
+  font-size: 1em;
+  width: 1.5em;
+  margin-right: 1px;
+  border-width: 0px 0px 2px 0px; /* Underline each letter */
+  border-color: gray;
+  border-style: solid;
+}
+
+/* Guessed Characters/ guesses remaining / gmame status */
+.list {
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+#guessed-characters {
+  margin-bottom: 30px;
+}
+
+.key {
   width: 2rem;
-  line-height: 2rem;
+  height: 2rem;
+}
+
+.keyboard-row {
   text-align: center;
-  color: #ad3131;
-  border-bottom: 1px solid #534f59;
-  text-transform: uppercase;
-  margin: 0 .1rem;
-}
+  padding-bottom: 15px;
+} 
 
-#game-card {
-  margin-top: 5%;
-  align-items: center;
-  justify-content: center;
-}
-
-#title {
+.reset {
   text-align: center;
-  color: black;
-  font-size: 150%;
+  /* border-style: solid;
+  border-width: 1px;
+  border-color: black; */
 }
-
-.card {
-  margin-bottom: 10px;
-  background-color: beige;
-  margin: 0;
-  border: 0;
-  padding: 0;
-  width: 100%;
-}
-.list-group-item {
-  background-color: beige;
-}
-
 #reset {
-  font-size: 2.5rem;
-}
-
-#guessed-characters {
-  color: black;
-  margin-top: 20px;
-  margin-bottom: 5px;
-}
-.card-body {
-  margin: 0;
-  padding: 0;
-  border: 0;
-}
-
-#guessed-characters {
-  text-align: center;
-}
-
-#guesses-remaining {
-  margin-top: 1%;
-  text-align: center;
-}
-
-#game-status {
-  margin-top: 1%;
-  text-align: center;
-}
-.big-key {
-  font-size: 100%;
-}
-#keyboard {
-  text-align: center;
-}
-.keyboard {
-  margin-bottom: 20px;
-  align-items: center;
-  justify-content: center;
-}
-
-#kb-row-1 {
-  text-align: center;
-}
-
-#kb-row-2 {
-  text-align: center;
-  width: 100%;
-}
-
-#kb-row-3 {
-  text-align: center;
-  width: 100%;
-}
-
-#game-over-message {
-  text-align: center;
+  width: 8rem;
+  height: 2rem;
 }
