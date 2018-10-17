@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="mood-color">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -18,54 +18,60 @@
   <link rel="stylesheet" media="screen, handheld" href="styles/styles_iphone_h.css">
   <title>Hangman</title>
 </head>
-<body>
-  <div class="site">
-    <h2 class="title">Hangman</h2>
-    <div class="puzzle">
-      <div id="puzzle"></div>
-    </div>
-    <div class="list">
-      <div id="guessed-characters"></div>
-      <div id="guesses-remaining"></div>
-      <div id="game-status"></div>
-    </div>
-    <div id="keyboard" class="keyboard">
-      <div id="kb-row-1" class="keyboard-row">
-        <button type="button" class="key">Q</button>
-        <button type="button" class="key">W</button>
-        <button type="button" class="key">E</button>
-        <button type="button" class="key">R</button>
-        <button type="button" class="key">T</button>
-        <button type="button" class="key">Y</button>
-        <button type="button" class="key">U</button>
-        <button type="button" class="key">I</button>
-        <button type="button" class="key">O</button>
-        <button type="button" class="key">P</button>
-      </div>
-      <div id="kb-row-2" class="keyboard-row">
-        <button type="button" class="key">A</button>
-        <button type="button" class="key">S</button>
-        <button type="button" class="key">D</button>
-        <button type="button" class="key">F</button>
-        <button type="button" class="key">G</button>
-        <button type="button" class="key">H</button>
-        <button type="button" class="key">J</button>
-        <button type="button" class="key">K</button>
-        <button type="button" class="key">L</button>
-       </div>
-       <div id="kb-row-3" class="keyboard-row">
-        <button type="button" class="key">Z</button>
-        <button type="button" class="key">X</button>
-        <button type="button" class="key">C</button>
-        <button type="button" class="key">V</button>
-        <button type="button" class="key">B</button>
-        <button type="button" class="key">N</button>
-        <button type="button" class="key">M</button>
-       </div>
-    </div>
-    <div class='reset'>
-      <button id="reset" href="#" class="button">Reset</button>
-    </div>
+<body class="site mood-color">
+
+  <div class="title mood-color">
+    <h2 class="mood-color">Hangman</h2>
+  </div> 
+
+  <div class="puzzle mood-color">
+    <div id="puzzle" class="mood-color"></div>
+  </div>
+
+  <div id="guessed-characters" class="mood-color"></div>
+
+  <div class="list mood-color">
+    <div id="guesses-remaining" class="mood-color"></div>
+    <div id="game-status" class="mood-color"></div>
+  </div>
+  
+  <div id="keyboard" class="keyboard">
+  <div id="kb-row-1" class="keyboard-row mood-color">
+    <button type="button" class="key">Q</button>
+    <button type="button" class="key">W</button>
+    <button type="button" class="key">E</button>
+    <button type="button" class="key">R</button>
+    <button type="button" class="key">T</button>
+    <button type="button" class="key">Y</button>
+    <button type="button" class="key">U</button>
+    <button type="button" class="key">I</button>
+    <button type="button" class="key">O</button>
+    <button type="button" class="key">P</button>
+  </div>
+  <div id="kb-row-2" class="keyboard-row mood-color">
+    <button type="button" class="key">A</button>
+    <button type="button" class="key">S</button>
+    <button type="button" class="key">D</button>
+    <button type="button" class="key">F</button>
+    <button type="button" class="key">G</button>
+    <button type="button" class="key">H</button>
+    <button type="button" class="key">J</button>
+    <button type="button" class="key">K</button>
+    <button type="button" class="key">L</button>
+  </div>
+  <div id="kb-row-3" class="keyboard-row mood-color">
+    <button type="button" class="key">Z</button>
+    <button type="button" class="key">X</button>
+    <button type="button" class="key">C</button>
+    <button type="button" class="key">V</button>
+    <button type="button" class="key">B</button>
+    <button type="button" class="key">N</button>
+    <button type="button" class="key">M</button>
+</div>
+</div>
+  <div class="reset mood-color">
+    <button id="reset" href="#" class="button">Reset</button>
+  </div>
 
   <!-- Bootstrap, requires jquery JS, then popper JS, then bootstrap JS-->
   <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

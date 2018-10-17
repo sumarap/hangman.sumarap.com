@@ -19,7 +19,6 @@ const renderPuzzlePage = () =>  {
   guessedCharactersEl.textContent = game.guesses;
 
   // Display guesses remaining
-  // guessesRemainingEl.textContent = `Guesses left: ${game.numberOfGuessesRemaining}`;
   guessesRemainingEl.textContent = `Guesses left: ${game.numberOfGuessesRemaining}`;
 
   if (game.status === 'playing' ) {
@@ -27,13 +26,12 @@ const renderPuzzlePage = () =>  {
     gameStatusEl.textContent = `Status: ${game.statusMessage()}`;
 
   } else if (game.status === 'lost') {
+    
     // Game over reveal the puzzle
     makePuzzleSpans(game, puzzleEl, '');  
-    gameStatusEl.setAttribute('class', 'alert alert-danger');
     gameStatusEl.textContent = `GAME OVER: ${game.statusMessage()}`;
 
   } else if (game.status === 'won') {
-    gameStatusEl.setAttribute('class', 'alert alert-success');
     gameStatusEl.textContent = `GAME OVER: ${game.statusMessage()}`;
   }
 };
@@ -64,6 +62,7 @@ const makePuzzleSpans = (game, puzzleEl, asterisk='*') => {
   puzzleArray.forEach((element) => {
     spanEl = document.createElement('span');
     spanEl.classList.add('puzzleSpan');
+    spanEl.classList.add('mood-color');
     spanEl.textContent = element;
     puzzleEl.appendChild(spanEl);
   });

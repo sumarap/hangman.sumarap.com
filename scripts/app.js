@@ -29,7 +29,7 @@ const startGame = async (numberOfWordsInPuzzle, numberOfGuessesAllowed) => {
 
   // Reset the game status alert for new game
   gameStatusEl.textContent = `Status: ${game.statusMessage()}`;
-  gameStatusEl.setAttribute('class', 'alert alert-success');
+  gameStatusEl.classList.add('mood-color', 'alert', 'alert-success');
 
   renderPuzzlePage();
   console.log('Game Started');
