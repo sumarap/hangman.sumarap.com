@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="mood-color">
+<html lang="en" class="play-color">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -18,25 +18,25 @@
   <link rel="stylesheet" media="screen, handheld" href="styles/styles_iphone_h.css">
   <title>Hangman</title>
 </head>
-<body class="site mood-color">
+<body class="site play-color">
 
-  <div class="title mood-color">
-    <h2 class="mood-color">Hangman</h2>
+  <div class="title play-color">
+    <h2 class="play-color">Hangman</h2>
   </div> 
 
-  <div class="puzzle mood-color">
-    <div id="puzzle" class="mood-color"></div>
+  <div class="puzzle play-color">
+    <div id="puzzle" class="play-color"></div>
   </div>
 
-  <div id="guessed-characters" class="mood-color"></div>
+  <div id="guessed-characters" class="play-color"></div>
 
-  <div class="list mood-color">
-    <div id="guesses-remaining" class="mood-color"></div>
-    <div id="game-status" class="mood-color"></div>
+  <div class="list play-color">
+    <div id="guesses-remaining" class="play-color"></div>
+    <div id="game-status" class="play-color"></div>
   </div>
   
   <div id="keyboard" class="keyboard">
-  <div id="kb-row-1" class="keyboard-row mood-color">
+  <div id="kb-row-1" class="keyboard-row play-color">
     <button type="button" class="key">Q</button>
     <button type="button" class="key">W</button>
     <button type="button" class="key">E</button>
@@ -48,7 +48,7 @@
     <button type="button" class="key">O</button>
     <button type="button" class="key">P</button>
   </div>
-  <div id="kb-row-2" class="keyboard-row mood-color">
+  <div id="kb-row-2" class="keyboard-row play-color">
     <button type="button" class="key">A</button>
     <button type="button" class="key">S</button>
     <button type="button" class="key">D</button>
@@ -59,7 +59,7 @@
     <button type="button" class="key">K</button>
     <button type="button" class="key">L</button>
   </div>
-  <div id="kb-row-3" class="keyboard-row mood-color">
+  <div id="kb-row-3" class="keyboard-row play-color">
     <button type="button" class="key">Z</button>
     <button type="button" class="key">X</button>
     <button type="button" class="key">C</button>
@@ -69,10 +69,11 @@
     <button type="button" class="key">M</button>
 </div>
 </div>
-  <div class="reset mood-color">
+  <div class="reset play-color">
     <button id="reset" href="#" class="button">Reset</button>
   </div>
 
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <!-- Bootstrap, requires jquery JS, then popper JS, then bootstrap JS-->
   <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>

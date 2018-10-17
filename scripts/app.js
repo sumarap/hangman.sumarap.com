@@ -21,6 +21,7 @@ const resetEl = document.querySelector('#reset');
 
 // Get the puzzle, instantiate the game and render a page.
 const startGame = async (numberOfWordsInPuzzle, numberOfGuessesAllowed) => {
+  $(".play-color").css("background-color", "#8cbbd3");
   puzzle = await getPuzzle(numberOfWordsInPuzzle);
   game = new Hangman(puzzle, numberOfWordsInPuzzle, numberOfGuessesAllowed);
 
@@ -29,7 +30,7 @@ const startGame = async (numberOfWordsInPuzzle, numberOfGuessesAllowed) => {
 
   // Reset the game status alert for new game
   gameStatusEl.textContent = `Status: ${game.statusMessage()}`;
-  gameStatusEl.classList.add('mood-color', 'alert', 'alert-success');
+  gameStatusEl.classList.add('play-color', 'alert', 'alert-success');
 
   renderPuzzlePage();
   console.log('Game Started');

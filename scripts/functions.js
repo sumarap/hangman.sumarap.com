@@ -26,12 +26,20 @@ const renderPuzzlePage = () =>  {
     gameStatusEl.textContent = `Status: ${game.statusMessage()}`;
 
   } else if (game.status === 'lost') {
-    
+
+    // Change the colors of elements to 'red' for loser 
+    $(".play-color").css("background-color", "#dd3140");
+
     // Game over reveal the puzzle
     makePuzzleSpans(game, puzzleEl, '');  
     gameStatusEl.textContent = `GAME OVER: ${game.statusMessage()}`;
 
   } else if (game.status === 'won') {
+    // Change the colors of elements to 'green' for winner
+    $(".play-color").css("background-color", "#63ce63");
+    const elements = document.getElementsByClassName('play-color');
+    console.log('elements',elements);
+
     gameStatusEl.textContent = `GAME OVER: ${game.statusMessage()}`;
   }
 };
@@ -62,7 +70,7 @@ const makePuzzleSpans = (game, puzzleEl, asterisk='*') => {
   puzzleArray.forEach((element) => {
     spanEl = document.createElement('span');
     spanEl.classList.add('puzzleSpan');
-    spanEl.classList.add('mood-color');
+    spanEl.classList.add('play-color');
     spanEl.textContent = element;
     puzzleEl.appendChild(spanEl);
   });
