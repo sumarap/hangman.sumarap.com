@@ -1,0 +1,77 @@
+/* For iphone horizontal*/
+@media screen and (min-width: 667px) {
+
+  .site {
+    display: grid;
+    grid: .5fr 2fr .5fr;
+    background-color: lightgreen
+  }
+
+  .site > div {
+    background-color: lightcoral;
+  }
+  .title {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 15px; /* Changed this for horizontal (less space) */
+  }
+
+  /* The div that contains the puzzle */
+  .puzzle {
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  /* Each span element in the puzzle */
+  .puzzleSpan {
+    display: inline-block;
+    margin-bottom: 5px; /* Changed this for horizontal made less */
+    font-size: 1em;
+    width: 1.5em;
+    margin-right: 1px;
+    border-width: 0px 0px 2px 0px; /* Underline each letter */
+    border-color: gray;
+    border-style: solid;
+  }
+
+  /* Guessed Characters/ guesses remaining / game status */
+  .list {
+    display: inline-block;
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: .5em;
+  }
+  
+  #guessed-characters {
+    display: block;
+    margin-bottom: 10px;
+    height: 1.5rem;
+    width: 100%vp;
+    font-size: 1.5em;
+    color: black;
+    background-color: whitesmoke;
+  }
+
+  .key {
+    width: 2rem;
+    height: 2rem;
+    background-color: lightgray;
+    color: black;
+  }
+  
+  .keyboard-row {
+    text-align: center;
+    padding-bottom: 15px;
+  } 
+  
+  .reset {
+    text-align: center;
+  }
+  #reset {
+    width: 8rem;
+    height: 2rem;
+    background-color: lightgray;
+    color: black;
+  }
+  
+}
