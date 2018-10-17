@@ -68,7 +68,8 @@ class Hangman {
   ////////////////////////////////////////////////////////////////////////
 
   getPuzzleWithAsterisks(asterisk){
-    
+   
+    // TODO: Should puzzle letters be upperCase()?
     const puzzle = this.puzzle.toLowerCase().split('');
     let puzzleWithAsterisks = '';
 

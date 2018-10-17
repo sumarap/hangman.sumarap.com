@@ -22,7 +22,6 @@
   .title {
     grid-column: 1/4;
     grid-row: 1/2;
-    background-color: lightcoral;
     margin-top: 25px;
     margin-bottom: 40px;
   }
@@ -46,6 +45,7 @@
     font-size: 1em;
     width: 1.5em;
     margin-right: 1px;
+    background-color: lightgoldenrodyellow;
     border-width: 0px 0px 2px 0px; /* Underline each letter */
     border-color: gray;
     border-style: solid;

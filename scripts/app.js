@@ -21,7 +21,11 @@ const resetEl = document.querySelector('#reset');
 
 // Get the puzzle, instantiate the game and render a page.
 const startGame = async (numberOfWordsInPuzzle, numberOfGuessesAllowed) => {
+ 
+  // Change the background color to 'playing' color
+  // We'll change it again when the user wins or loses.
   $(".play-color").css("background-color", "#8cbbd3");
+  
   puzzle = await getPuzzle(numberOfWordsInPuzzle);
   game = new Hangman(puzzle, numberOfWordsInPuzzle, numberOfGuessesAllowed);
 

@@ -69,6 +69,7 @@ const makePuzzleSpans = (game, puzzleEl, asterisk='*') => {
   let spanEl;
   puzzleArray.forEach((element) => {
     spanEl = document.createElement('span');
+    // TODO: Combine these two add comma dilemited strings 'puzzleSpan','play-color'
     spanEl.classList.add('puzzleSpan');
     spanEl.classList.add('play-color');
     spanEl.textContent = element;

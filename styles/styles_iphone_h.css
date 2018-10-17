@@ -3,21 +3,38 @@
 
   .site {
     display: grid;
-    grid: .5fr 2fr .5fr;
-    background-color: lightgreen
+    grid: 1fr 2fr 1fr;
+    grid-template-rows: 50px;
   }
 
-  .site > div {
-    background-color: lightcoral;
+  .play-color {
+    background-color: #8cbbd3;
   }
+
+  .win-color {
+    background-color: #63ce63; 
+  }
+
+  .lose-color {
+    background-color: #dd3140;
+  }
+
   .title {
-    text-align: center;
+    grid-column: 1/4;
+    grid-row: 1/2;
     margin-top: 10px;
-    margin-bottom: 15px; /* Changed this for horizontal (less space) */
+    margin-bottom: 5px; /* Changed this for horizontal (less space) */
+  }
+
+  .title > h2 {
+    text-align: center;
   }
 
   /* The div that contains the puzzle */
   .puzzle {
+    grid-column: 1/4;
+    grid-row: 2/3;
+    margin-top: 10px;
     margin-bottom: 10px;
     text-align: center;
   }
@@ -29,28 +46,43 @@
     font-size: 1em;
     width: 1.5em;
     margin-right: 1px;
+    background-color: lightgoldenrodyellow;
     border-width: 0px 0px 2px 0px; /* Underline each letter */
     border-color: gray;
     border-style: solid;
   }
 
-  /* Guessed Characters/ guesses remaining / game status */
-  .list {
-    display: inline-block;
-    margin-bottom: 10px;
-    text-align: center;
-    font-size: .5em;
-  }
-  
   #guessed-characters {
+    grid-column: 1/4;
+    grid-row: 3/4;
     display: block;
+    text-align: center;
     margin-bottom: 10px;
     height: 1.5rem;
     width: 100%vp;
     font-size: 1.5em;
     color: black;
-    background-color: whitesmoke;
   }
+
+  /* Guessed Characters/ guesses remaining / game status */
+  .list {
+    grid-column: 1/4;
+    grid-row: 4/5;
+    /* display: inline-block; */
+    margin-bottom: 10px;
+    text-align: center;
+    /* font-size: .5em; */
+  }
+  
+  #keyboard {
+    grid-column: 1/4;
+    grid-row: 5/6;
+  }
+
+  .keyboard-row {
+    text-align: center;
+    padding-bottom: 15px;
+  } 
 
   .key {
     width: 2rem;
@@ -59,12 +91,9 @@
     color: black;
   }
   
-  .keyboard-row {
-    text-align: center;
-    padding-bottom: 15px;
-  } 
-  
   .reset {
+    grid-column: 1/4;
+    grid-row: 6/7;
     text-align: center;
   }
   #reset {
@@ -73,5 +102,8 @@
     background-color: lightgray;
     color: black;
   }
-  
+
+  footer {
+    text-align: center;
+  }
 }
