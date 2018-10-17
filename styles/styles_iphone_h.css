@@ -43,8 +43,8 @@
   .puzzleSpan {
     display: inline-block;
     margin-bottom: 5px; /* Changed this for horizontal made less */
-    font-size: 1em;
-    width: 1.5em;
+    font-size: 1.5em;
+    width: 2em;
     margin-right: 1px;
     background-color: lightgoldenrodyellow;
     border-width: 0px 0px 2px 0px; /* Underline each letter */
@@ -68,10 +68,9 @@
   .list {
     grid-column: 1/4;
     grid-row: 4/5;
-    /* display: inline-block; */
     margin-bottom: 10px;
     text-align: center;
-    /* font-size: .5em; */
+    font-size: .5em;
   }
   
   #keyboard {
