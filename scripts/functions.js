@@ -38,7 +38,6 @@ const renderPuzzlePage = () =>  {
     // Change the colors of elements to 'green' for winner
     $(".play-color").css("background-color", "#63ce63");
     const elements = document.getElementsByClassName('play-color');
-    console.log('elements',elements);
 
     gameStatusEl.textContent = `GAME OVER: ${game.statusMessage()}`;
   }
@@ -62,6 +61,7 @@ const makePuzzleSpans = (game, puzzleEl, asterisk='*') => {
   // with asterisks, or other character passed to this function.
   // If the user passes the null string '', the actual puzzle letters
   // will be used.
+  // const puzzleArray = ['A','B','C','D','E','F','G','H','I','J','K','L','M'];
   const puzzleArray = game.getPuzzleWithAsterisks(asterisk).split('');
 
   // Loop through the puzzle array and create a span element for each

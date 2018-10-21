@@ -4,6 +4,7 @@
   .site {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: repeat(5, auto);
   }
 
   .play-color {
@@ -24,13 +25,14 @@
     margin-top: 25px;
     margin-bottom: 40px;
   }
+  
   .title > h2 {
     text-align: center;
     font-size: 250%;
-    color: black;
+    /* color: black; */
+    color: #40406e;
   }
   
-  /* The div that contains the puzzle */
   .puzzle {
     grid-column: 1/4;
     grid-row: 2/3;
@@ -39,12 +41,11 @@
     text-align: center;
   }
   
-  /* Each span element in the puzzle */
   .puzzleSpan {
     display: inline-block;
-    margin-bottom: 20px;
     font-size: 2em;
     width: .8em;
+    margin-bottom: 20px;
     margin-right: 1px;
     background-color: lightgoldenrodyellow;
     border-width: 0px 0px 2px 0px; /* Underline each letter */
@@ -53,18 +54,17 @@
   }
   
   #guessed-characters {
+    display: block;
     grid-column: 1/4;
     grid-row: 3/4;
-    display: block;
+    font-size: 1.5em;
     text-align: center;
     margin-bottom: 30px;
-    height: 1.5rem;
     width: 100%vp;
-    font-size: 1.5em;
+    height: 1.5rem;
     color: black;
   }
   
-  /* Guessed Characters/ guesses remaining / game status */
   .list {
     grid-column: 1/4;
     grid-row: 4/5;

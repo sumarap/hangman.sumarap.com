@@ -3,10 +3,9 @@
 
   .site {
     display: grid;
-    grid: 1fr 2fr 1fr;
-    grid-template-rows: 50px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: repeat(5, auto);
   }
-
   .play-color {
     background-color: #8cbbd3;
   }
@@ -20,61 +19,62 @@
   }
 
   .title {
-    grid-column: 1/4;
+    grid-column: 2/4;
     grid-row: 1/2;
     margin-top: 10px;
-    margin-bottom: 5px; /* Changed this for horizontal (less space) */
+    margin-bottom: 15px; 
   }
 
   .title > h2 {
     text-align: center;
+    font-size: 250%;
+    /* color: blue; */
+    color: #3939a0;
   }
 
-  /* The div that contains the puzzle */
   .puzzle {
-    grid-column: 1/4;
+    grid-column: 1/5;
     grid-row: 2/3;
-    margin-top: 10px;
+    margin-top: 1px;
     margin-bottom: 10px;
     text-align: center;
   }
 
-  /* Each span element in the puzzle */
   .puzzleSpan {
     display: inline-block;
-    margin-bottom: 5px; /* Changed this for horizontal made less */
-    font-size: 1.5em;
-    width: 2em;
+    font-size: 2em;
+    width: .8em;
+    margin-bottom: 5px; 
     margin-right: 1px;
     background-color: lightgoldenrodyellow;
-    border-width: 0px 0px 2px 0px; /* Underline each letter */
+    border-width: 0px 0px 2px 0px; 
     border-color: gray;
     border-style: solid;
   }
 
   #guessed-characters {
-    grid-column: 1/4;
-    grid-row: 3/4;
     display: block;
-    text-align: center;
-    margin-bottom: 10px;
-    height: 1.5rem;
-    width: 100%vp;
+    grid-column: 1/5;
+    grid-row: 3/4;
     font-size: 1.5em;
+    text-align: center;
+    margin-bottom: 15px;
+    width: 100%vp;
+    height: 1.5rem;
     color: black;
   }
 
-  /* Guessed Characters/ guesses remaining / game status */
   .list {
-    grid-column: 1/4;
-    grid-row: 4/5;
+    grid-column: 4/5;
+    grid-row: 1/2; 
     margin-bottom: 10px;
-    text-align: center;
-    font-size: .5em;
+    text-align: left;
+    font-size: .9em;
+    margin: 5px 5px;
   }
   
   #keyboard {
-    grid-column: 1/4;
+    grid-column: 1/5;
     grid-row: 5/6;
   }
 
@@ -84,25 +84,25 @@
   } 
 
   .key {
+    font-size: 1.6em;
     width: 2rem;
     height: 2rem;
     background-color: lightgray;
     color: black;
+    margin-top: 5px;
+    margin-left: 15px;
   }
   
   .reset {
-    grid-column: 1/4;
+    grid-column: 1/5;
     grid-row: 6/7;
     text-align: center;
   }
   #reset {
+    font-size: 1.5rem;
     width: 8rem;
     height: 2rem;
     background-color: lightgray;
     color: black;
-  }
-
-  footer {
-    text-align: center;
   }
 }
