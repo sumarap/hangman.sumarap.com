@@ -39,6 +39,14 @@ class Hangman {
 
   makeGuess(guess){
 
+    // Check if the guess is only one character
+    // Clicking on one of the keyboard rows results in the full
+    // row of characters being inserted in the guess 
+    // Return false if this is not a valid guess
+    if (guess.length > 1) {
+      return false; // Not a new guess
+    }
+
     // Change to lowercase for comparison with puzzle.
     guess = guess.toLowerCase();
 

@@ -73,8 +73,9 @@ keyboard.addEventListener('click', (e) => {
     // If user clicks on the keyboard row element instead of a letter
     // The entire row is returned and stuffed into the guess
     // Don't let that happen. Only accept the guess if it's one character
-    
-    if ((guess.length === 1) && (game.makeGuess(guess))) {
+
+    // Only increase guessedCharactersEl if this is a new (and valid) guess
+    if (game.makeGuess(guess)) {
       guessedCharactersEl.value += guess;
     };
     renderPuzzlePage();
