@@ -7,3 +7,257 @@
   font-family: Arial, Helvetica, sans-serif;
   background-color: whitesmoke;
 }
+
+/* iPhone vertical */
+@media screen and (min-width: 100px) {
+
+  .site {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: repeat(5, auto);
+  }
+
+  .title {
+    grid-column: 1/4;
+    grid-row: 1/2;
+    margin-top: 25px;
+    margin-bottom: 40px;
+  }
+
+  .title > h2 {
+    text-align: center;
+    font-size: 250%;
+    color: #40406e;
+  }
+
+  .puzzle {
+    grid-column: 1/4;
+    grid-row: 2/3;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  .puzzleSpan {
+    display: inline-block;
+    font-size: 2em;
+    width: .8em;
+    margin-bottom: 20px;
+    margin-right: 1px;
+    background-color: lightgoldenrodyellow;
+    border-width: 0px 0px 2px 0px; /* Underline each letter */
+    border-color: gray;
+    border-style: solid;
+  }
+
+  #guessed-characters {
+    display: block;
+    grid-column: 1/4;
+    grid-row: 3/4;
+    font-size: 1.5em;
+    text-align: center;
+    margin-bottom: 30px;
+    width: 100%vp;
+    height: 1.5rem;
+    color: black;
+  }
+
+  .list {
+    grid-column: 1/4;
+    grid-row: 4/5;
+    margin-bottom: 40px;
+    text-align: center;
+  }
+
+  #keyboard {
+    grid-column: 1/4;
+    grid-row: 5/6;
+    margin-top: 30px;
+  }
+
+  .keyboard-row {
+    text-align: center;
+    padding-bottom: 15px;
+  }
+
+  .key {
+    font-size: 1.6em;
+    width: 2rem;
+    height: 2rem;
+    background-color: lightgray;
+    color: black;
+  }
+
+  .reset {
+    grid-column: 1/4;
+    grid-row: 6/7;
+    text-align: center;
+  }
+
+  #reset {
+    font-size: 1.5rem;
+    width: 30%;
+    background-color: lightgray;
+    color: black;
+  }
+}
+
+/* For android Galaxy 9 and and slightly smaller vertical width */
+@media screen and (max-width: 360px) {
+  .key {
+    font-size: 1.3rem;
+    width: 1.8rem;
+  }
+}
+
+/* For iPhone horizontal */
+@media screen and (min-width: 667px) {
+  .site {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+
+  .title {
+    grid-column: 2/4;
+    grid-row: 1/2;
+    margin-top: 10px;
+    margin-bottom: 15px;
+  }
+
+  .title > h2 {
+    color: #3939a0;
+  }
+
+  .puzzle {
+    grid-column: 1/5;
+    margin-top: 1px;
+  }
+
+  .puzzleSpan {
+    margin-bottom: 5px;
+  }
+
+  #guessed-characters {
+    grid-column: 1/5;
+    margin-bottom: 15px;
+  }
+
+  .list {
+    grid-column: 4/5;
+    grid-row: 1/2;
+    text-align: left;
+    font-size: .9em;
+    margin: 5px 5px;
+  }
+
+  #keyboard {
+    grid-column: 1/5;
+    margin-top: 0px;
+    margin-bottom: 10px;
+  }
+
+  .keyboard-row {
+    padding-bottom: 5px;
+  }
+
+  .key {
+    margin-top: 5px;
+    margin-left: 15px;
+  }
+
+  .reset {
+    grid-column: 1/5;
+  }
+
+  #reset {
+    width: 40%;
+    height: 2rem;
+  }
+}
+
+/* For iPad vertical */
+@media screen and (min-width: 668px) {
+  .title {
+    margin: 50px 0px;
+  }
+
+  .title > h2 {
+    text-align: center;
+    font-size: 250%;
+    color: #40406e;
+  }
+
+  .puzzle {
+    margin-bottom: 20px;
+  }
+
+  .puzzleSpan {
+    font-size: 250%;
+    width: 1.2em;
+    margin-bottom: 10px;
+    padding: 0px;
+  }
+
+  #guessed-characters {
+    font-size: 2rem;
+    height: 2rem;
+  }
+
+  .list {
+    grid-column: 2/4;
+    grid-row: 4/5;
+    font-size: 170%;
+    text-align: center;
+  }
+
+  #keyboard {
+    margin-top: 200px;
+  }
+
+  .keyboard-row {
+    padding-bottom: 20px;
+  }
+
+  .key {
+    font-size: 2rem;
+    width: 3rem;
+    height: 3rem;
+  }
+
+  .reset {
+    grid-column: 2/4;
+    grid-row: 6/7;
+    text-align: center;
+  }
+
+  #reset {
+    font-size: 2rem;
+    width: 70%;
+    height: 3.5rem;
+  }
+}
+
+/* For iPad horizontal */
+@media screen and (min-width: 1024px) {
+  .title {
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+
+  .title > h2 {
+    font-size: 300%;
+  }
+
+  .puzzle {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  #keyboard {
+    margin-top: 5px;
+  }
+
+  .key {
+    margin-right: 5px;
+  }
+ } /* End of iPad horizontal */
+ 
