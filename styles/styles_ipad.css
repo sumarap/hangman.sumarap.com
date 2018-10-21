@@ -1,5 +1,7 @@
-/* For iphone vertical */
-@media screen and (max-width: 414px) {
+/* iPad Horizontal settins at bottom */
+
+/* For iPad vertical */
+@media screen and (min-width: 668px) {
 
   .site {
   display: grid;
@@ -22,45 +24,46 @@
   .title {
     grid-column: 1/4;
     grid-row: 1/2;
-    margin-top: 25px;
-    margin-bottom: 40px;
+    margin-top: 50px;
+    margin-bottom: 50px;
   }
-  
+
   .title > h2 {
     text-align: center;
-    font-size: 250%;
+    font-size: 250%; 
     color: #40406e;
   }
   
   .puzzle {
     grid-column: 1/4;
-    grid-row: 2/3;
+    grid-row: 2/3; 
     margin-top: 20px;
-    margin-bottom: 10px;
+    margin-bottom: 20px; 
     text-align: center;
   }
   
   .puzzleSpan {
     display: inline-block;
-    font-size: 2em;
-    width: .8em;
-    margin-bottom: 20px;
+    font-size: 250%;
+    width: 1.2em;
+    margin-bottom: 10px;
     margin-right: 1px;
+    padding: 0px;
     background-color: lightgoldenrodyellow;
-    border-width: 0px 0px 2px 0px; /* Underline each letter */
+    border-width: 0px 0px 2px 0px; 
     border-color: gray;
     border-style: solid;
   }
   
   #guessed-characters {
-    display: block;
     grid-column: 1/4;
     grid-row: 3/4;
-    font-size: 1.5em;
+    display: block;
     text-align: center;
     margin-bottom: 30px;
+    height: 2rem;
     width: 100%vp;
-    height: 1.5rem;
+    font-size: 2em;
     color: black;
   }
   
@@ -69,23 +72,24 @@
     grid-row: 4/5;
     margin-bottom: 40px;
     text-align: center;
+    font-size: 170%;
   }
   
   #keyboard {
     grid-column: 1/4;
     grid-row: 5/6;
-    margin-top: 30px;
+    margin-top: 200px;
   }
 
   .keyboard-row {
     text-align: center;
-    padding-bottom: 15px;
+    padding-bottom: 20px;
   } 
   
   .key {
-    font-size: 1.6em;
-    width: 2rem;
-    height: 2rem;
+    font-size: 2rem;
+    width: 3rem;
+    height: 3rem;
     background-color: lightgray;
     color: black;
   }
@@ -96,17 +100,40 @@
     text-align: center;
   }
   #reset {
-    font-size: 1.5rem;
-    width: 30%;
+    font-size: 2rem;
+    width: 8rem;
+    height: 3.5rem;
     background-color: lightgray;
     color: black;
   }
+
 } 
 
-/* For android Galaxy 9 and and slightly smaller vertical width */
-@media screen and (max-width: 360px) {
+/* For iPad horizontal */
+/* TODO: Get this working.
+   The keyboard needs to come up - less than
+   250px in the vertical iPad */
+
+@media screen and (min-width: 1024px) {
+  .title {
+    margin-top: 30px;
+    margin-bottom: 30px;
+  } 
+
+  .title > h2 {
+    font-size: 300%;
+  }
+
+  .puzzle {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+ 
+  #keyboard {
+    margin-top: 5px;
+  }
+
   .key {
-    font-size: 1.3rem;
-    width: 1.8rem;
+    margin-right: 5px;
   }
 }
