@@ -86,6 +86,7 @@
     height: 2rem;
     background-color: lightgray;
     color: black;
+    border-radius: 5px;
   }
 
   .reset {
