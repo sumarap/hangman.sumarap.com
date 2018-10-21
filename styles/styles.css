@@ -207,10 +207,11 @@
     grid-row: 4/5;
     font-size: 170%;
     text-align: center;
+    margin-top: 50px;
   }
 
   #keyboard {
-    margin-top: 200px;
+    margin-top: 180px;
   }
 
   .keyboard-row {
