@@ -46,6 +46,7 @@ startGame(numberOfWords, numberOfGuesses);
 // Listen for user Guesses
 window.addEventListener('keypress', (e) => {
   if (game.status === 'playing'){
+
     game.makeGuess(e.key);
 
     // If user presses the space key, then reset the game
@@ -68,7 +69,12 @@ const keyboard = document.querySelector('#keyboard');
 keyboard.addEventListener('click', (e) => {
   if (game.status === 'playing'){
     const guess = e.target.innerText;
-    if (game.makeGuess(guess)) {
+
+    // If user clicks on the keyboard row element instead of a letter
+    // The entire row is returned and stuffed into the guess
+    // Don't let that happen. Only accept the guess if it's one character
+    
+    if ((guess.length === 1) && (game.makeGuess(guess))) {
       guessedCharactersEl.value += guess;
     };
     renderPuzzlePage();
