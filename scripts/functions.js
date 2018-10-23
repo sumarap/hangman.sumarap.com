@@ -27,18 +27,16 @@ const renderPuzzlePage = () =>  {
 
   } else if (game.status === 'lost') {
 
-    // Change the colors of elements to 'red' for loser 
-    $(".play-color").css("background-color", "#dd3140");
-
     // Game over reveal the puzzle
     makePuzzleSpans(game, puzzleEl, '');  
+
+    // Change the colors of elements to 'red' for loser
+    $(".play-color").css("background-color", "#dd3140");
     gameStatusEl.textContent = `GAME OVER: ${game.statusMessage()}`;
 
   } else if (game.status === 'won') {
     // Change the colors of elements to 'green' for winner
     $(".play-color").css("background-color", "#63ce63");
-    const elements = document.getElementsByClassName('play-color');
-
     gameStatusEl.textContent = `GAME OVER: ${game.statusMessage()}`;
   }
 };
@@ -63,15 +61,12 @@ const makePuzzleSpans = (game, puzzleEl, asterisk='*') => {
   // will be used.
   // const puzzleArray = ['A','B','C','D','E','F','G','H','I','J','K','L','M'];
   const puzzleArray = game.getPuzzleWithAsterisks(asterisk).split('');
-
   // Loop through the puzzle array and create a span element for each
   // and append to the puzzleEl that was passed to makePuzzleSpans()
   let spanEl;
   puzzleArray.forEach((element) => {
     spanEl = document.createElement('span');
-    // TODO: Combine these two add comma dilemited strings 'puzzleSpan','play-color'
-    spanEl.classList.add('puzzleSpan');
-    spanEl.classList.add('play-color');
+    spanEl.classList.add('puzzleSpan', 'play-color');
     spanEl.textContent = element;
     puzzleEl.appendChild(spanEl);
   });
