@@ -45,16 +45,17 @@ startGame(numberOfWords, numberOfGuesses);
 
 // Listen for user Guesses
 window.addEventListener('keypress', (e) => {
-  if (game.status === 'playing'){
 
-    game.makeGuess(e.key);
-
-    // If user presses the space key, then reset the game
-    if (e.key === ' '){
+  // Reset the game
+  if (e.key === ' '){
        startGame(numberOfWords, numberOfGuesses);
-    } else {
-      guessedCharactersEl.value += e.key;
-    }
+       return;
+  }
+
+  // Game still playing - make a guess
+  if (game.status === 'playing'){
+    game.makeGuess(e.key);
+    guessedCharactersEl.value += e.key;
     renderPuzzlePage();
   }
 });
