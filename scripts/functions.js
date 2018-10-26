@@ -1,10 +1,9 @@
-const renderPuzzlePage = () =>  {
- 
+const renderPuzzlePage = () => {
   // First, reset all screen elements to blank
-  puzzleEl.textContent = '';
-  guessedCharactersEl.textContent = '';
-  guessesRemainingEl.textContent = '';
-  gameStatusEl.textContent = '';
+  puzzleEl.textContent = ''
+  guessedCharactersEl.textContent = ''
+  guessesRemainingEl.textContent = ''
+  gameStatusEl.textContent = ''
 
   // Display the puzzle with asterisks for letters not guessed yet.
   // puzzleEl.textContent = `Puzzle: "${game.getPuzzleWithAsterisks()}"`;
@@ -12,62 +11,61 @@ const renderPuzzlePage = () =>  {
   // Create a span for each letter so we they can be easily spaced
   // Pass it the game instance and the div that we'll attach all the
   // span elements to (one for each letter in the puzzle).
-  makePuzzleSpans(game, puzzleEl, '*');  
+  makePuzzleSpans(game, puzzleEl, '*')
 
   // Display characters already guessed by the user
-  guessedCharactersEl.focus();
-  guessedCharactersEl.textContent = game.guesses;
+  guessedCharactersEl.focus()
+  guessedCharactersEl.textContent = game.guesses
 
   // Display guesses remaining
-  guessesRemainingEl.textContent = `Guesses left: ${game.numberOfGuessesRemaining}`;
+  guessesRemainingEl.textContent = `Guesses left: ${
+    game.numberOfGuessesRemaining
+  }`
 
-  if (game.status === 'playing' ) {
+  if (game.status === 'playing') {
     // Display game status (playing)
-    gameStatusEl.textContent = `Status: ${game.statusMessage()}`;
-
+    gameStatusEl.textContent = `Status: ${game.statusMessage()}`
   } else if (game.status === 'lost') {
-
     // Game over reveal the puzzle
-    makePuzzleSpans(game, puzzleEl, '');  
+    makePuzzleSpans(game, puzzleEl, '')
 
     // Change the colors of elements to 'red' for loser
-    $(".play-color").css("background-color", "#dd3140");
-    gameStatusEl.textContent = `GAME OVER: ${game.statusMessage()}`;
-
+    $('.play-color').css('background-color', '#dd3140')
+    gameStatusEl.textContent = `GAME OVER: ${game.statusMessage()}`
   } else if (game.status === 'won') {
     // Change the colors of elements to 'green' for winner
-    $(".play-color").css("background-color", "#63ce63");
-    gameStatusEl.textContent = `GAME OVER: ${game.statusMessage()}`;
+    $('.play-color').css('background-color', '#63ce63')
+    gameStatusEl.textContent = `GAME OVER: ${game.statusMessage()}`
   }
-};
+}
 
 // Create a span element for each letter in the puzzle
-// And append each of those spans to the puzzleEl that is 
+// And append each of those spans to the puzzleEl that is
 // passed to makePuzzleSpans()
-// 
+//
 // The third parameter indicates what to display for letters the user hasn't guessed yet.
 // The '*' is used by default. If empty string is used '', the real puzzle letters
 // will be displayed instead of '*'. This is used to display the REAL puzzle
 // At the end of the game to show the user what the puzzle solution was if the
 // user wasn't able to solve it.
 
-const makePuzzleSpans = (game, puzzleEl, asterisk='*') => {
+const makePuzzleSpans = (game, puzzleEl, asterisk = '*') => {
   // Remove existing div first
-  puzzleEl.innerHTML = "";
+  puzzleEl.innerHTML = ''
 
   // Get the puzzle string, replacing letters the user hasn't guessed yet
   // with asterisks, or other character passed to this function.
   // If the user passes the null string '', the actual puzzle letters
   // will be used.
   // const puzzleArray = ['A','B','C','D','E','F','G','H','I','J','K','L','M'];
-  const puzzleArray = game.getPuzzleWithAsterisks(asterisk).split('');
+  const puzzleArray = game.getPuzzleWithAsterisks(asterisk).split('')
   // Loop through the puzzle array and create a span element for each
   // and append to the puzzleEl that was passed to makePuzzleSpans()
-  let spanEl;
-  puzzleArray.forEach((element) => {
-    spanEl = document.createElement('span');
-    spanEl.classList.add('puzzleSpan', 'play-color');
-    spanEl.textContent = element;
-    puzzleEl.appendChild(spanEl);
-  });
-};
+  let spanEl
+  puzzleArray.forEach(element => {
+    spanEl = document.createElement('span')
+    spanEl.classList.add('puzzleSpan', 'play-color')
+    spanEl.textContent = element
+    puzzleEl.appendChild(spanEl)
+  })
+}

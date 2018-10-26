@@ -10,7 +10,6 @@
 
 /* iPhone vertical */
 @media screen and (min-width: 100px) {
-
   .site {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -41,7 +40,7 @@
   .puzzleSpan {
     display: inline-block;
     font-size: 2em;
-    width: .8em;
+    width: 0.8em;
     margin-bottom: 20px;
     margin-right: 1px;
     background-color: lightgoldenrodyellow;
@@ -147,7 +146,7 @@
     grid-column: 4/5;
     grid-row: 1/2;
     text-align: left;
-    font-size: .9em;
+    font-size: 0.9em;
     margin: 5px 5px;
   }
 
@@ -265,5 +264,4 @@
   .key {
     margin-right: 5px;
   }
- } /* End of iPad horizontal */
- 
+} /* End of iPad horizontal */
