@@ -4,9 +4,11 @@
   "description": "Simple Hangman Game",
   "main": "index.html",
   "scripts": {
-    "format": "npm run prettier -- --write",
+    "lint": "eslint scripts",
     "prettier": "prettier \"**/*.+(js|json|css)\"",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "format": "npm run prettier -- --write",
+    "validate": "npm run lint && npm run prettier -- --list-different",
+    "precommit": "npm run validate"
   },
   "repository": {
     "type": "git",
@@ -19,6 +21,7 @@
     "eslint": "^5.7.0",
     "eslint-config-prettier": "^3.1.0",
     "eslint-plugin-html": "^4.0.6",
+    "husky": "^1.1.2",
     "prettier": "^1.14.3"
   }
 }
