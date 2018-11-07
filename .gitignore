@@ -2,4 +2,7 @@
 /playground/*
 .DS_Store
 /node_modules/*
+data.json
+original.json
+
 
