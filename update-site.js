@@ -62,8 +62,7 @@ let getDistParams = {
 CLOUD_FRONT.getDistribution(getDistParams, function(err, data) {
   if (err) console.log(err, err.stack)
   else {
-    // TODO: Remove this after testing
-    // Output original distribution config to a file.
+    // Output the original distribution config to a file.
     //const fileOriginal = './original.json'
     //outputToFile(fileOriginal, JSON.stringify(data, null, ' '))
 
@@ -74,13 +73,11 @@ CLOUD_FRONT.getDistribution(getDistParams, function(err, data) {
       if (err) console.log(err, err.stack)
       else {
         console.log('updateDistribution was successful')
+        // Output the modified distribution config to a file.
+        //const fileModified = './data.json'
+        //outputToFile(fileModified, JSON.stringify(data, null, ' '))
       }
     })
-
-    // TODO: Remove this after testing
-    // Outout modified distribution config to a file.
-    //const fileModified = './data.json'
-    //outputToFile(fileModified, JSON.stringify(data, null, ' '))
   }
 })
 

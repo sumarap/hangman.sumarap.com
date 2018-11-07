@@ -1,5 +1,6 @@
 const fs = require('fs')
 
+// Copy updated app files to s3 into same bucket, new subfolder
 const pushFilesToS3Bucket = (S3, BUCKET, file) => {
   let params = {
     Bucket: BUCKET,
@@ -13,7 +14,7 @@ const pushFilesToS3Bucket = (S3, BUCKET, file) => {
   })
 }
 
-// Change the value of OriginPath
+// Update the cloudfront distribution configuration
 const fixCloudFrontDistribution = (data, NEW_ORIGIN_PATH, ETAG) => {
   data.DistributionConfig.Origins.Items[0].OriginPath = NEW_ORIGIN_PATH
   delete data.ETag
@@ -21,6 +22,7 @@ const fixCloudFrontDistribution = (data, NEW_ORIGIN_PATH, ETAG) => {
   data.IfMatch = ETAG
 }
 
+// Used for outputing cloudfront distribution configuration to a file.
 const outputToFile = (path, buffer) => {
   fs.open(path, 'w', function(err, fd) {
     if (err) {
