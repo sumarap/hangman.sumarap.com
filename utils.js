@@ -2,15 +2,18 @@ const fs = require('fs')
 
 // Copy updated app files to s3 into same bucket, new subfolder
 const pushFilesToS3Bucket = (S3, BUCKET, file) => {
-  let params = {
-    Bucket: BUCKET,
-    Key: file,
-    StorageClass: 'STANDARD_IA',
-  }
-
-  S3.putObject(params, function(err, data) {
-    if (err) console.log(err, err.stack)
-    else console.log(data)
+  // Get file contents
+  fs.readFile(file, function(err, data) {
+    let params = {
+      Bucket: BUCKET,
+      Key: file,
+      Body: data,
+      StorageClass: 'STANDARD_IA',
+    }
+    S3.putObject(params, function(err, data) {
+      if (err) console.log(err, err.stack)
+      else console.log(data)
+    })
   })
 }
 
