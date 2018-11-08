@@ -1,14 +1,47 @@
 const fs = require('fs')
+const path = require('path')
 
 // Copy updated app files to s3 into same bucket, new subfolder
 const pushFilesToS3Bucket = (S3, BUCKET, file) => {
+  let contentType = 'text/html'
+
+  // Check if this is an image file
+  const ext = path.extname(file).substring(1)
+  switch (ext.toLowerCase()) {
+    case 'js':
+      contentType = 'application/javascript'
+      break
+    case 'json':
+      contentType = 'application/json'
+      break
+    case 'ico':
+      contentType = 'image/x-icon'
+      break
+    case 'jpg':
+    case 'jpeg':
+      contentType = 'image/jpeg'
+      break
+    case 'png':
+      contentType = 'image/png'
+      break
+    case 'gif':
+      contentType = 'image/gif'
+      break
+    case 'css':
+      contentType = 'text/css'
+      break
+    default:
+      contentType = 'text/html'
+      break
+  }
+
   // Get file contents
   fs.readFile(file, function(err, data) {
     let params = {
       Bucket: BUCKET,
       Key: file,
       Body: data,
-      ContentType: 'text/html',
+      ContentType: contentType,
       StorageClass: 'STANDARD_IA',
     }
     S3.putObject(params, function(err, data) {
