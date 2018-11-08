@@ -21,7 +21,7 @@
 // const fs = require('fs')
 const moment = require('moment')
 const {
-  pushFilesToS3Bucket,
+  pushAllFilesToS3Bucket,
   fixCloudFrontDistribution,
   updateCloudFrontDistribution,
   outputToFile,
@@ -48,10 +48,8 @@ const files = [
   'scripts/requests.js',
   'styles/styles_1.css',
 ]
-// Copy app files to s3
-files.forEach(file => {
-  pushFilesToS3Bucket(S3, BUCKET, file)
-})
+// Copy ALL app files to s3
+pushAllFilesToS3Bucket(S3, BUCKET, files)
 
 // We need the cloudfront distribution id to call getDistribution
 let getDistParams = {

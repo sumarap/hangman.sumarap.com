@@ -8,12 +8,19 @@ const pushFilesToS3Bucket = (S3, BUCKET, file) => {
       Bucket: BUCKET,
       Key: file,
       Body: data,
+      ContentType: 'text/html',
       StorageClass: 'STANDARD_IA',
     }
     S3.putObject(params, function(err, data) {
       if (err) console.log(err, err.stack)
       else console.log(data)
     })
+  })
+}
+
+const pushAllFilesToS3Bucket = (S3, BUCKET, files) => {
+  files.forEach(file => {
+    pushFilesToS3Bucket(S3, BUCKET, file)
   })
 }
 
@@ -43,7 +50,7 @@ const outputToFile = (path, buffer) => {
 }
 
 module.exports = {
-  pushFilesToS3Bucket: pushFilesToS3Bucket,
+  pushAllFilesToS3Bucket: pushAllFilesToS3Bucket,
   fixCloudFrontDistribution: fixCloudFrontDistribution,
   outputToFile,
 }
