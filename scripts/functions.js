@@ -22,21 +22,10 @@ const renderPuzzlePage = () => {
     game.numberOfGuessesRemaining
   }`
 
-  if (game.status === 'playing') {
-    // Display game status (playing)
-    gameStatusEl.textContent = `Status: ${game.statusMessage()}`
-  } else if (game.status === 'lost') {
-    // Game over reveal the puzzle
-    makePuzzleSpans(game, puzzleEl, '')
+  gameStatusEl.textContent = `Status: ${game.statusMessage()}`
 
-    // Change the colors of elements to 'red' for loser
-    $('.play-color').css('background-color', '#dd3140')
-    gameStatusEl.textContent = `GAME OVER: ${game.statusMessage()}`
-  } else if (game.status === 'won') {
-    // Change the colors of elements to 'green' for winner
-    $('.play-color').css('background-color', '#63ce63')
-    gameStatusEl.textContent = `GAME OVER: ${game.statusMessage()}`
-  }
+  // Set the text and colors to reflect the current game status
+  setGameStatusData(game)
 }
 
 // Create a span element for each letter in the puzzle
@@ -57,7 +46,6 @@ const makePuzzleSpans = (game, puzzleEl, asterisk = '*') => {
   // with asterisks, or other character passed to this function.
   // If the user passes the null string '', the actual puzzle letters
   // will be used.
-  // const puzzleArray = ['A','B','C','D','E','F','G','H','I','J','K','L','M'];
   const puzzleArray = game.getPuzzleWithAsterisks(asterisk).split('')
   // Loop through the puzzle array and create a span element for each
   // and append to the puzzleEl that was passed to makePuzzleSpans()
@@ -68,4 +56,74 @@ const makePuzzleSpans = (game, puzzleEl, asterisk = '*') => {
     spanEl.textContent = element
     puzzleEl.appendChild(spanEl)
   })
+}
+
+// When a user clicks a virtual key make a guess
+const processKeyClick = e => {
+  let key
+
+  // If this is a user keypress (real keyboard)
+  if (e.type === 'keypress') {
+    key = e.key
+  } else {
+    // The user pressed one of our virtual keys
+    key = e.target.innerText
+  }
+
+  if (game.status === 'playing') {
+    //const guess = e.target.innerText
+    const guess = key
+
+    // Only increase guessedCharactersEl if this is a new (and valid) guess
+    if (game.makeGuess(guess)) {
+      guessedCharactersEl.value += guess
+    }
+    renderPuzzlePage()
+  }
+}
+
+// Get the puzzle, instantiate the game and render a page.
+const startGame = async (numberOfWordsInPuzzle, numberOfGuessesAllowed) => {
+  // Blank the guessed characters input before each game.
+  guessedCharactersEl.value = ''
+
+  // The call to the words api sometime takes a while
+  // This is a place holder
+  // TODO: (GitHub Issue#3) Replace this with some kind of animation (spinning gif, fading,
+  // progress bar), while we get the puzzle word.
+  puzzle = 'H'
+  game = new Hangman(puzzle, numberOfWordsInPuzzle, numberOfGuessesAllowed)
+  setGameStatusData(game) // Screen colors and game messages
+  renderPuzzlePage()
+
+  puzzle = await getPuzzle(numberOfWordsInPuzzle)
+  game.puzzle = puzzle
+
+  renderPuzzlePage()
+  console.log('Game Started')
+  console.log(`Puzzle: "${puzzle}"`)
+}
+
+// Set the text and colors to reflect the current game status
+const setGameStatusData = game => {
+  if (game.status === 'playing') {
+    // Change the background color to 'playing' color
+    // We'll change it again when the user wins or loses.
+    gameStatusEl.classList.add('play-color', 'alert', 'alert-success')
+    $('.play-color').css('background-color', '#8cbbd3')
+
+    // Display game status (playing)
+    gameStatusEl.textContent = `Status: ${game.statusMessage()}`
+  } else if (game.status === 'lost') {
+    // Game over reveal the puzzle
+    makePuzzleSpans(game, puzzleEl, '')
+
+    // Change the colors of elements to 'red' for loser
+    $('.play-color').css('background-color', '#dd3140')
+    gameStatusEl.textContent = `GAME OVER: ${game.statusMessage()}`
+  } else if (game.status === 'won') {
+    // Change the colors of elements to 'green' for winner
+    $('.play-color').css('background-color', '#63ce63')
+    gameStatusEl.textContent = `GAME OVER: ${game.statusMessage()}`
+  }
 }
