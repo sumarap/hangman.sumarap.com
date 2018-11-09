@@ -11,6 +11,7 @@
 let game
 let numberOfWords = 1
 let numberOfGuesses = 10
+let puzzle = 'Hangman'
 
 // Configure html elements
 const puzzleEl = document.querySelector('#puzzle')

@@ -17,13 +17,6 @@ const renderPuzzlePage = () => {
   guessedCharactersEl.focus()
   guessedCharactersEl.textContent = game.guesses
 
-  // Display guesses remaining
-  guessesRemainingEl.textContent = `Guesses left: ${
-    game.numberOfGuessesRemaining
-  }`
-
-  gameStatusEl.textContent = `Status: ${game.statusMessage()}`
-
   // Set the text and colors to reflect the current game status
   setGameStatusData(game)
 }
@@ -87,18 +80,15 @@ const startGame = async (numberOfWordsInPuzzle, numberOfGuessesAllowed) => {
   // Blank the guessed characters input before each game.
   guessedCharactersEl.value = ''
 
-  // The call to the words api sometime takes a while
-  // This is a place holder
-  // TODO: (GitHub Issue#3) Replace this with some kind of animation (spinning gif, fading,
-  // progress bar), while we get the puzzle word.
-  puzzle = 'H'
+  if (puzzle === 'Hangman') {
+    game = new Hangman(puzzle, numberOfWordsInPuzzle, numberOfGuessesAllowed)
+    setGameStatusData(game) // Screen colors and game messages
+    splashScreen(puzzleEl, puzzle)
+  }
   game = new Hangman(puzzle, numberOfWordsInPuzzle, numberOfGuessesAllowed)
   setGameStatusData(game) // Screen colors and game messages
-  renderPuzzlePage()
-
   puzzle = await getPuzzle(numberOfWordsInPuzzle)
   game.puzzle = puzzle
-
   renderPuzzlePage()
   console.log('Game Started')
   console.log(`Puzzle: "${puzzle}"`)
@@ -126,4 +116,23 @@ const setGameStatusData = game => {
     $('.play-color').css('background-color', '#63ce63')
     gameStatusEl.textContent = `GAME OVER: ${game.statusMessage()}`
   }
+  guessesRemainingEl.textContent = `Guesses left: ${
+    game.numberOfGuessesRemaining
+  }`
+}
+
+const splashScreen = (puzzleEl, title) => {
+  // Remove existing div first
+  puzzleEl.innerHTML = ''
+
+  const puzzleArray = title.split('')
+  // Loop through the puzzle array and create a span element for each
+  // and append to the puzzleEl that was passed to makePuzzleSpans()
+  let spanEl
+  puzzleArray.forEach(element => {
+    spanEl = document.createElement('span')
+    spanEl.classList.add('puzzleSpan')
+    spanEl.textContent = element
+    puzzleEl.appendChild(spanEl)
+  })
 }
