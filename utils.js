@@ -2,7 +2,7 @@ const fs = require('fs')
 const path = require('path')
 
 // Copy updated app files to s3 into same bucket, new subfolder
-const pushFilesToS3Bucket = (S3, BUCKET, file) => {
+const pushFileToS3Bucket = (S3, BUCKET, file) => {
   let contentType = 'text/html'
 
   // Check if this is an image file
@@ -51,9 +51,9 @@ const pushFilesToS3Bucket = (S3, BUCKET, file) => {
   })
 }
 
-const pushAllFilesToS3Bucket = (S3, BUCKET, files) => {
+const pushFilesToS3Bucket = (S3, BUCKET, files) => {
   files.forEach(file => {
-    pushFilesToS3Bucket(S3, BUCKET, file)
+    pushFileToS3Bucket(S3, BUCKET, file)
   })
 }
 
@@ -83,7 +83,7 @@ const outputToFile = (path, buffer) => {
 }
 
 module.exports = {
-  pushAllFilesToS3Bucket: pushAllFilesToS3Bucket,
+  pushFilesToS3Bucket: pushAllFilesToS3Bucket,
   fixCloudFrontDistribution: fixCloudFrontDistribution,
   outputToFile,
 }

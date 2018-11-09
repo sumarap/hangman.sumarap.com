@@ -22,7 +22,7 @@
 const moment = require('moment')
 
 const {
-  pushAllFilesToS3Bucket,
+  pushFilesToS3Bucket,
   fixCloudFrontDistribution,
   updateCloudFrontDistribution,
   outputToFile,
@@ -47,10 +47,10 @@ const files = [
   'scripts/functions.js',
   'scripts/hangman.js',
   'scripts/requests.js',
-  'styles/styles_1.css',
+  'styles/styles.css',
 ]
 // Copy ALL app files to s3
-pushAllFilesToS3Bucket(S3, BUCKET, files)
+pushFilesToS3Bucket(S3, BUCKET, files)
 
 // We need the cloudfront distribution id to call getDistribution
 let getDistParams = {
