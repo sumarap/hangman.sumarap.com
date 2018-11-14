@@ -11,12 +11,12 @@
 const getPuzzle = async (wordCount = 2) => {
   const response = await fetch(
     //`https://puzzle.mead.io/puzzle?wordCount=${wordCount}`,
-    `https://words.sumarap.com`,
+    `https://words.sumarap.com?wordCount=${wordCount}`,
     {},
   )
   if (response.status === 200) {
     const data = await response.json()
-    return data.word
+    return data.words
   } else {
     throw new Error('Unable to fetch puzzle')
   }

@@ -80,18 +80,31 @@ const startGame = async (numberOfWordsInPuzzle, numberOfGuessesAllowed) => {
   // Blank the guessed characters input before each game.
   guessedCharactersEl.value = ''
 
+  // Here's a splashscreen that distracts the user while we get our first
+  // array of words. It only gets displayed while we get the first array of words
   if (puzzle === 'Hangman') {
     game = new Hangman(puzzle, numberOfWordsInPuzzle, numberOfGuessesAllowed)
     setGameStatusData(game) // Screen colors and game messages
     splashScreen(puzzleEl, puzzle)
+    puzzleArr = await getPuzzle(numberOfWordsInPuzzle)
+  }
+
+  // Pull another word from our array
+  if (puzzleArr.length > 0) {
+    puzzle = puzzleArr.pop()
+  } else {
+    puzzleArr = await getPuzzle(numberOfWordsInPuzzle)
+    puzzle = puzzleArr.pop()
   }
   game = new Hangman(puzzle, numberOfWordsInPuzzle, numberOfGuessesAllowed)
   setGameStatusData(game) // Screen colors and game messages
-  puzzle = await getPuzzle(numberOfWordsInPuzzle)
-  game.puzzle = puzzle
   renderPuzzlePage()
-  console.log('Game Started')
-  console.log(`Puzzle: "${puzzle}"`)
+
+  // If that was the last word in our array, go get another few words. The user
+  // already has a word, and won't notice how long it takes to get these new words.
+  if (puzzleArr.length === 0) {
+    puzzleArr = await getPuzzle(numberOfWordsInPuzzle)
+  }
 }
 
 // Set the text and colors to reflect the current game status
