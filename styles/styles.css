@@ -103,16 +103,8 @@
   }
 }
 
-/* For android Galaxy 9 and and slightly smaller vertical width */
-@media screen and (max-width: 360px) {
-  .key {
-    font-size: 1.3rem;
-    width: 1.8rem;
-  }
-}
-
 /* For iPhone horizontal */
-@media screen and (min-width: 667px) {
+@media screen and (max-height: 414px) and (max-width: 896px) {
   .site {
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
@@ -176,7 +168,7 @@
 }
 
 /* For iPad vertical */
-@media screen and (min-width: 668px) {
+@media screen and (max-height: 1366) and (max-width: 1024px) {
   .title {
     margin: 50px 0px;
   }
@@ -239,7 +231,7 @@
 }
 
 /* For iPad horizontal */
-@media screen and (min-width: 1024px) {
+@media screen and (max-height: 1024) and (max-width: 1366px) {
   .title {
     margin-top: 30px;
     margin-bottom: 30px;
